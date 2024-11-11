@@ -1,6 +1,6 @@
-import User from '../../models/User.js';
+import User from "../../models/User.js";
 
-export const createUser = async (req, res) => {
+const register = async (req, res) => {
   try {
     const user = new User(req.body);
     await user.save();
@@ -9,3 +9,5 @@ export const createUser = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+export default register;
