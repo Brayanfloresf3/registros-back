@@ -16,12 +16,12 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 // Routers
-server.use("/api", indexRouter);
+server.use("/api", indexRouter); 
 
 //My Middlewares
 server.use(notFoundHandler);
 server.use(errorHandler);
-
+ 
 const PORT = process.env.PORT || 8080;
 
 server.listen(PORT, () => {
