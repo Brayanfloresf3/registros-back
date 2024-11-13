@@ -2,11 +2,17 @@ import User from "../../models/User.js";
 
 const register = async (req, res) => {
   try {
-    const user = new User(req.body);
-    await user.save();
-    res.status(201).json(user);
+    let user = req.body
+    user.online = false
+    
+    let all = await User.create(user)
+    return res.status(201).json({
+        response: all
+    })
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ 
+      message: error.message 
+    });
   }
 };
 
